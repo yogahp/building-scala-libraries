@@ -5,6 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.3">
+<meta name="author" content="Schalk Cronjé">
 <title>Building Scala Libraries</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
@@ -32,6 +33,9 @@
 </head>
 <body class="article toc2 toc-right">
 <div id="header"><div style="padding-top: 10px;"><a href="https://guides.gradle.org"><img src="http://guides.gradle.org/gradle-guides.svg" alt=""></a></div><h1>Building Scala Libraries</h1>
+<div class="details">
+<span id="author" class="author">Schalk Cronjé</span><br>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -168,7 +172,7 @@ BUILD SUCCESSFUL</pre>
 <div class="listingblock">
 <div class="title">Generated settings.gradle</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">rootProject.name = <span class="string"><span class="delimiter">'</span><span class="content">building-scala-libraries</span><span class="delimiter">'</span></span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="CodeRay highlight"><code data-lang="groovy">rootProject.name = <span class="string"><span class="delimiter">'</span><span class="content">gradleRunner</span><span class="delimiter">'</span></span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -259,7 +263,7 @@ class LibrarySuite extends FunSuite {
 </div>
 </div>
 <div class="paragraph">
-<p>The generated test class consists of a single <a href="http://www.scalatest.org/getting_started_with_fun_suite">Scala FunSuite</a>. The test instantiates the <code>Library</code> class, invokes the <code>someLibraryMethod</code> method, and checks that the returned value is `true.</p>
+<p>The generated test class consists of a single Scala FunSuite. The test instantiates the <code>Library</code> class, invokes the <code>someLibraryMethod</code> method, and checks that the returned value is `true.</p>
 </div>
 </div>
 </div>
@@ -274,6 +278,7 @@ class LibrarySuite extends FunSuite {
 <pre>$ ./gradlew build
 :compileJava NO-SOURCE
 :compileScala
+Zinc interface compilation took 39.945 secs
 :processResources NO-SOURCE
 :classes
 :jar
@@ -350,6 +355,7 @@ class Library {
 :processResources NO-SOURCE
 :classes
 :scaladoc
+[ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/resources/main' does not exist.
 
 BUILD SUCCESSFUL</pre>
 </div>
@@ -401,7 +407,7 @@ BUILD SUCCESSFUL</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-05-30 15:34:45 UTC
+Last updated 2017-06-12 19:32:38 UTC
 </div>
 </div>
 </body>
