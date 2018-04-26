@@ -3,14 +3,14 @@
 <head><link crossorigin href="//assets.gradle.com" rel="preconnect">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i">
 <link rel="stylesheet" href="https://guides.gradle.org/css/asciidoctor.css">
-<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.5.2.css">
+<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.7.css">
 <link rel="apple-touch-icon" sizes="180x180" href="https://guides.gradle.org/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="https://guides.gradle.org/icon/manifest.json">
 <link rel="mask-icon" href="https://guides.gradle.org/icon/safari-pinned-tab.svg" color="#5bbad5">
 <link rel="shortcut icon" href="https://guides.gradle.org/icon/favicon.ico">
-<script defer src="https://guides.gradle.org/js/guides.js"></script>
+<script defer src="https://guides.gradle.org/js/guides-4.7.js"></script>
 <script defer src="https://guides.gradle.org/js/set-time-to-complete-text.js"></script>
 <script async src="https://guides.gradle.org/js/autotrack.js"></script>
 
@@ -21,7 +21,6 @@
 <meta name="author" content="Schalk Cronjé">
 <title>Building Scala Libraries</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
-<link rel="stylesheet" href="./coderay-asciidoctor.css">
 </head>
 <body class="article">
 <header class="site-layout__header site-header" itemscope="itemscope" itemtype="https://schema.org/WPHeader">
@@ -137,7 +136,7 @@
 <p>The Java Development Kit (JDK), version 1.7 or higher</p>
 </li>
 <li>
-<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.6 or better</p>
+<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.7 or better</p>
 </li>
 </ul>
 </div>
@@ -169,10 +168,10 @@ $ cd building-scala-libraries</pre>
 <div class="listingblock">
 <div class="content">
 <pre>$ gradle init --type scala-library
-:wrapper
-:init
+&gt; Task :wrapper
+&gt; Task :init
 
-BUILD SUCCESSFUL in 4s
+BUILD SUCCESSFUL in 3s
 2 actionable tasks: 2 executed</pre>
 </div>
 </div>
@@ -225,7 +224,7 @@ BUILD SUCCESSFUL in 4s
 <div class="listingblock">
 <div class="title">Generated settings.gradle</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">rootProject.name = <span class="string"><span class="delimiter">'</span><span class="content">gradleRunner</span><span class="delimiter">'</span></span> <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">rootProject.name = 'gradleRunner' <i class="conum" data-value="1"></i><b>(1)</b></code></pre>
 </div>
 </div>
 <div class="colist arabic">
@@ -242,17 +241,17 @@ BUILD SUCCESSFUL in 4s
 <div class="listingblock">
 <div class="title">Generated build.gradle</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="groovy">plugins {
-    id <span class="string"><span class="delimiter">'</span><span class="content">scala</span><span class="delimiter">'</span></span>
+<pre class="prettyprint highlight"><code class="language-groovy" data-lang="groovy">plugins {
+    id 'scala'
 }
 
 dependencies {
-    compile <span class="string"><span class="delimiter">'</span><span class="content">org.scala-lang:scala-library:2.11.8</span><span class="delimiter">'</span></span> <i class="conum" data-value="2"></i><b>(2)</b>
+    compile 'org.scala-lang:scala-library:2.11.8' <i class="conum" data-value="2"></i><b>(2)</b>
 
-    testCompile <span class="string"><span class="delimiter">'</span><span class="content">junit:junit:4.12</span><span class="delimiter">'</span></span> <i class="conum" data-value="3"></i><b>(3)</b>
-    testCompile <span class="string"><span class="delimiter">'</span><span class="content">org.scalatest:scalatest_2.11:3.0.4</span><span class="delimiter">'</span></span> <i class="conum" data-value="4"></i><b>(4)</b>
+    testCompile 'junit:junit:4.12' <i class="conum" data-value="3"></i><b>(3)</b>
+    testCompile 'org.scalatest:scalatest_2.11:3.0.5' <i class="conum" data-value="4"></i><b>(4)</b>
 
-    testRuntime <span class="string"><span class="delimiter">'</span><span class="content">org.scala-lang.modules:scala-xml_2.11:1.0.6</span><span class="delimiter">'</span></span> <i class="conum" data-value="5"></i><b>(5)</b>
+    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.6' <i class="conum" data-value="5"></i><b>(5)</b>
 }
 
 repositories {
@@ -293,7 +292,7 @@ repositories {
 <div class="listingblock">
 <div class="title">Generated src/main/scala/Library.scala</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="scala">class Library {
+<pre class="prettyprint highlight"><code class="language-scala" data-lang="scala">class Library {
   def someLibraryMethod(): Boolean = true
 }</code></pre>
 </div>
@@ -304,13 +303,13 @@ repositories {
 <div class="listingblock">
 <div class="title">Generated  src/test/scala/LibrarySuite.scala</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="scala">import org.scalatest.FunSuite
+<pre class="prettyprint highlight"><code class="language-scala" data-lang="scala">import org.scalatest.FunSuite
 import org.junit.runner.RunWith
 import org.scalatest.junit.JUnitRunner
 
 @RunWith(classOf[JUnitRunner])
 class LibrarySuite extends FunSuite {
-  test(&quot;someLibraryMethod is always true&quot;) {
+  test("someLibraryMethod is always true") {
     def library = new Library()
     assert(library.someLibraryMethod)
   }
@@ -331,23 +330,31 @@ class LibrarySuite extends FunSuite {
 <div class="listingblock">
 <div class="content">
 <pre>$ ./gradlew build
-:compileJava NO-SOURCE
-:compileScala
-Pruning sources from previous analysis, due to incompatible CompileSetup.
-:processResources NO-SOURCE
-:classes
-:jar
-:assemble
-:compileTestJava NO-SOURCE
-:compileTestScala
-Pruning sources from previous analysis, due to incompatible CompileSetup.
-:processTestResources NO-SOURCE
-:testClasses
-:test
-:check
-:build
+&gt; Task :compileJava NO-SOURCE
 
-BUILD SUCCESSFUL in 55s
+&gt; Task :compileScala
+Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
+Pruning sources from previous analysis, due to incompatible CompileSetup.
+
+&gt; Task :processResources NO-SOURCE
+&gt; Task :classes
+&gt; Task :jar
+&gt; Task :assemble
+&gt; Task :compileTestJava NO-SOURCE
+
+&gt; Task :compileTestScala
+Pruning sources from previous analysis, due to incompatible CompileSetup.
+
+&gt; Task :processTestResources NO-SOURCE
+&gt; Task :testClasses
+
+&gt; Task :test
+Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
+
+&gt; Task :check
+&gt; Task :build
+
+BUILD SUCCESSFUL in 46s
 4 actionable tasks: 4 executed</pre>
 </div>
 </div>
@@ -394,7 +401,7 @@ The first time you run the wrapper script, <code>gradlew</code>, there may be a 
 <div class="listingblock">
 <div class="title">src/main/scala/Library.scala</div>
 <div class="content">
-<pre class="CodeRay highlight"><code data-lang="scala">/** This Scala source file was generated by the Gradle 'init' task.
+<pre class="prettyprint highlight"><code class="language-scala" data-lang="scala">/** This Scala source file was generated by the Gradle 'init' task.
  */
 class Library {
   def someLibraryMethod(): Boolean = true
@@ -407,11 +414,15 @@ class Library {
 <div class="listingblock">
 <div class="content">
 <pre>$ ./gradlew scaladoc
-:compileJava NO-SOURCE
-:compileScala
-:processResources NO-SOURCE
-:classes
-:scaladoc
+&gt; Task :compileJava NO-SOURCE
+
+&gt; Task :compileScala
+Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
+
+&gt; Task :processResources NO-SOURCE
+&gt; Task :classes
+
+&gt; Task :scaladoc
 [ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/classes/java/main' does not exist.
 [ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/resources/main' does not exist.
 
@@ -454,10 +465,10 @@ BUILD SUCCESSFUL in 9s
 <div class="ulist">
 <ul>
 <li>
-<p>Read about the <a href="https://docs.gradle.org/4.6/userguide/scala_plugin.html">Scala Plugin</a></p>
+<p>Read about the <a href="https://docs.gradle.org/4.7/userguide/scala_plugin.html">Scala Plugin</a></p>
 </li>
 <li>
-<p>Get to know the configurations for the <a href="https://docs.gradle.org/4.6/dsl/org.gradle.api.tasks.scala.ScalaCompile.html">ScalaCompile</a> and <a href="https://docs.gradle.org/4.6/dsl/org.gradle.api.tasks.scala.ScalaDoc.html">Scaladoc</a> task types.</p>
+<p>Get to know the configurations for the <a href="https://docs.gradle.org/4.7/dsl/org.gradle.api.tasks.scala.ScalaCompile.html">ScalaCompile</a> and <a href="https://docs.gradle.org/4.7/dsl/org.gradle.api.tasks.scala.ScalaDoc.html">Scaladoc</a> task types.</p>
 </li>
 </ul>
 </div>
@@ -472,6 +483,9 @@ BUILD SUCCESSFUL in 9s
 </div>
 </div>
 </div>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min.js"></script>
+<script>prettyPrint()</script>
 <footer class="site-layout__footer site-footer" itemscope="itemscope" itemtype="https://schema.org/WPFooter">
     <nav class="site-footer__navigation" itemtype="https://schema.org/SiteNavigationElement">
         <section class="site-footer__links">
