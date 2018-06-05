@@ -10,7 +10,7 @@
 <link crossorigin href="//assets.gradle.com" rel="preconnect">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i">
 <link rel="stylesheet" href="https://guides.gradle.org/css/asciidoctor.css">
-<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.8.css">
+<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.8.1.css">
 <link rel="apple-touch-icon" sizes="180x180" href="https://guides.gradle.org/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-16x16.png" sizes="16x16">
@@ -144,9 +144,9 @@
         <ul>
             <li><a class="nav-dropdown" data-toggle="collapse" href="#ci-integration" aria-expanded="false" aria-controls="ci-integration">Continuous Integration</a>
                 <ul id="ci-integration">
-                    <li><a href="https://guides.gradle.org/executing-gradle-builds-on-jenkins">Using Gradle with Jenkins</a></li>
-                    <li><a href="https://guides.gradle.org/executing-gradle-builds-on-teamcity">Using Gradle with TeamCity</a></li>
-                    <li><a href="https://guides.gradle.org/executing-gradle-builds-on-travisci">Using Gradle with Travis CI</a></li>
+                    <li><a href="https://guides.gradle.org/executing-gradle-builds-on-jenkins/">Using Gradle with Jenkins</a></li>
+                    <li><a href="https://guides.gradle.org/executing-gradle-builds-on-teamcity/">Using Gradle with TeamCity</a></li>
+                    <li><a href="https://guides.gradle.org/executing-gradle-builds-on-travisci/">Using Gradle with Travis CI</a></li>
                 </ul>
             </li>
         </ul>
@@ -422,6 +422,7 @@ Pruning sources from previous analysis, due to incompatible CompileSetup.
 &gt; Task :jar
 &gt; Task :assemble
 &gt; Task :compileTestJava NO-SOURCE
+
 &gt; Task :compileTestScala
 Pruning sources from previous analysis, due to incompatible CompileSetup.
 
@@ -434,7 +435,7 @@ Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
 &gt; Task :check
 &gt; Task :build
 
-BUILD SUCCESSFUL in 1m 22s
+BUILD SUCCESSFUL in 47s
 4 actionable tasks: 4 executed</pre>
 </div>
 </div>
@@ -506,7 +507,7 @@ Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
 [ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/classes/java/main' does not exist.
 [ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/resources/main' does not exist.
 
-BUILD SUCCESSFUL in 10s
+BUILD SUCCESSFUL in 8s
 2 actionable tasks: 2 executed</pre>
 </div>
 </div>
