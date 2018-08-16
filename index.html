@@ -4,19 +4,19 @@
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.6.1">
+<meta name="generator" content="Asciidoctor 1.5.5">
 <title>Building Scala Libraries</title>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css">
+
 <link crossorigin href="//assets.gradle.com" rel="preconnect">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,400i">
-<link rel="stylesheet" href="https://guides.gradle.org/css/asciidoctor.css">
-<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.8.1.css">
+<link href="https://fonts.googleapis.com/css?family=Inconsolata:400,700" rel="stylesheet">
+<link rel="stylesheet" href="https://guides.gradle.org/css/docs-blue-theme-4.10.css">
 <link rel="apple-touch-icon" sizes="180x180" href="https://guides.gradle.org/icon/apple-touch-icon.png">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-32x32.png" sizes="32x32">
 <link rel="icon" type="image/png" href="https://guides.gradle.org/icon/favicon-16x16.png" sizes="16x16">
 <link rel="manifest" href="https://guides.gradle.org/icon/manifest.json">
 <link rel="shortcut icon" href="https://guides.gradle.org/icon/favicon.ico">
-<script defer src="https://guides.gradle.org/js/guides-4.8.js"></script>
+<script defer src="https://guides.gradle.org/js/guides-4.10.js"></script>
 <script defer src="https://guides.gradle.org/js/set-time-to-complete-text.js"></script>
 <script async src="https://guides.gradle.org/js/autotrack.js"></script>
 
@@ -167,14 +167,6 @@
     <div class="chapter">
 <div id="header">
 <h1>Building Scala Libraries</h1>
-</div>
-<div id="content">
-<div id="preamble">
-<div class="sectionbody">
-<div class="paragraph">
-<p>This guide demonstrates how to create a Scala library in the standard form using Gradle&#8217;s Build Init plugin.</p>
-</div>
-</div>
 <div id="toc" class="toc">
 <div id="toctitle">Contents</div>
 <ul class="sectlevel1">
@@ -189,6 +181,14 @@
 <li><a href="#next_steps">Next Steps</a></li>
 <li><a href="#help_improve_this_guide">Help improve this guide</a></li>
 </ul>
+</div>
+</div>
+<div id="content">
+<div id="preamble">
+<div class="sectionbody">
+<div class="paragraph">
+<p>This guide demonstrates how to create a Scala library in the standard form using Gradle&#8217;s Build Init plugin.</p>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -217,7 +217,7 @@
 <p>The Java Development Kit (JDK), version 1.7 or higher</p>
 </li>
 <li>
-<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.7 or better</p>
+<p>A <a href="https://gradle.org/install">Gradle distribution</a>, version 4.10-rc-2 or better</p>
 </li>
 </ul>
 </div>
@@ -252,7 +252,7 @@ $ cd building-scala-libraries</pre>
 &gt; Task :wrapper
 &gt; Task :init
 
-BUILD SUCCESSFUL in 4s
+BUILD SUCCESSFUL in 5s
 2 actionable tasks: 2 executed</pre>
 </div>
 </div>
@@ -327,12 +327,12 @@ BUILD SUCCESSFUL in 4s
 }
 
 dependencies {
-    compile 'org.scala-lang:scala-library:2.11.8' <i class="conum" data-value="2"></i><b>(2)</b>
+    compile 'org.scala-lang:scala-library:2.11.12' <i class="conum" data-value="2"></i><b>(2)</b>
 
     testCompile 'junit:junit:4.12' <i class="conum" data-value="3"></i><b>(3)</b>
     testCompile 'org.scalatest:scalatest_2.11:3.0.5' <i class="conum" data-value="4"></i><b>(4)</b>
 
-    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.0.6' <i class="conum" data-value="5"></i><b>(5)</b>
+    testRuntime 'org.scala-lang.modules:scala-xml_2.11:1.1.0' <i class="conum" data-value="5"></i><b>(5)</b>
 }
 
 repositories {
@@ -435,7 +435,7 @@ Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
 &gt; Task :check
 &gt; Task :build
 
-BUILD SUCCESSFUL in 47s
+BUILD SUCCESSFUL in 48s
 4 actionable tasks: 4 executed</pre>
 </div>
 </div>
@@ -507,7 +507,7 @@ Picked up _JAVA_OPTIONS: -Xmx2048m -Xms512m
 [ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/classes/java/main' does not exist.
 [ant:scaladoc] Element '/home/travis/build/gradle-guides/building-scala-libraries/build/runners/gradleRunner/build/resources/main' does not exist.
 
-BUILD SUCCESSFUL in 8s
+BUILD SUCCESSFUL in 11s
 2 actionable tasks: 2 executed</pre>
 </div>
 </div>
@@ -546,10 +546,10 @@ BUILD SUCCESSFUL in 8s
 <div class="ulist">
 <ul>
 <li>
-<p>Read about the <a href="https://docs.gradle.org/4.7/userguide/scala_plugin.html">Scala Plugin</a></p>
+<p>Read about the <a href="https://docs.gradle.org/4.10-rc-2/userguide/scala_plugin.html">Scala Plugin</a></p>
 </li>
 <li>
-<p>Get to know the configurations for the <a href="https://docs.gradle.org/4.7/dsl/org.gradle.api.tasks.scala.ScalaCompile.html">ScalaCompile</a> and <a href="https://docs.gradle.org/4.7/dsl/org.gradle.api.tasks.scala.ScalaDoc.html">Scaladoc</a> task types.</p>
+<p>Get to know the configurations for the <a href="https://docs.gradle.org/4.10-rc-2/dsl/org.gradle.api.tasks.scala.ScalaCompile.html">ScalaCompile</a> and <a href="https://docs.gradle.org/4.10-rc-2/dsl/org.gradle.api.tasks.scala.ScalaDoc.html">Scaladoc</a> task types.</p>
 </li>
 </ul>
 </div>
